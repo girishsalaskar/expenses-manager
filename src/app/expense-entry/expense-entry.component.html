@@ -12,13 +12,13 @@
                 </div> 
              </div> 
           </div> 
-          <div class="container box" style="margin-top: 10px;"> 
+          <div class="container box" *ngFor="let exp of expenseEntry" style="margin-top: 10px;"> 
              <div class="row"> 
                 <div class="col-2" style="text-align: right;">  
                    <strong><em>Item:</em></strong> 
                 </div> 
                 <div class="col" style="text-align: left;"> 
-                   {{ expenseEntry.item }} 
+                   {{ exp.item }} 
                 </div> 
              </div> 
              <div class="row"> 
@@ -26,7 +26,7 @@
                    <strong><em>Amount:</em></strong> 
                 </div> 
                 <div class="col" style="text-align: left;">
-                   {{ expenseEntry.amount }} 
+                   {{ exp.amount }} 
                 </div> 
              </div> 
              <div class="row"> 
@@ -34,7 +34,7 @@
                    <strong><em>Category:</em></strong> 
                 </div> 
                 <div class="col" style="text-align: left;"> 
-                   {{ expenseEntry.category }} 
+                   {{ exp.category }} 
                 </div> 
              </div> 
              <div class="row"> 
@@ -42,7 +42,7 @@
                    <strong><em>Location:</em></strong> 
                 </div> 
                 <div class="col" style="text-align: left;"> 
-                   {{ expenseEntry.location }} 
+                   {{ exp.location }} 
                 </div> 
              </div> 
              <div class="row"> 
@@ -50,7 +50,7 @@
                    <strong><em>Spend On:</em></strong>
                 </div> 
                 <div class="col" style="text-align: left;"> 
-                   {{ expenseEntry.spendOn }} 
+                   {{ exp.spendOn }} 
                 </div> 
              </div> 
           </div> 

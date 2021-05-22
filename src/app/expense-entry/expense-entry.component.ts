@@ -9,22 +9,38 @@ import { ExpenseEntry } from '../expense-entry';
 export class ExpenseEntryComponent implements OnInit {
 
   title: string;
-  expenseEntry: ExpenseEntry;
+  expenseEntry: ExpenseEntry[];
   constructor() { }
 
   ngOnInit() {
     this.title = "Expenses Entry";
-    this.expenseEntry = { 
-      id: 1, 
-      item: "Pizza", 
-      amount: 21, 
-      category: "Food", 
-      location: "Zomato", 
-      spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10), 
-   };
+    this.expenseEntry = [{
+      id: 1,
+      item: "Pizza",
+      amount: 21,
+      category: "Food",
+      location: "Zomato",
+      spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
+    },
+    {
+      id: 2,
+      item: "Burger",
+      amount: 21,
+      category: "Food",
+      location: "Zomato",
+      spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
+    },
+    {
+      id: 3,
+      item: "Vada pav",
+      amount: 10,
+      category: "Food",
+      location: "Zomato",
+      spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
+    }];
   }
 
-  showMessage($event:any) {
+  showMessage($event: any) {
     alert("Hi");
     console.log("Button clicked!");
     console.log($event);
