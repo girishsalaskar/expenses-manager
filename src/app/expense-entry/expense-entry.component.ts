@@ -44,10 +44,10 @@ export class ExpenseEntryComponent implements OnInit {
   }
 
   showMessage($event: any) {
-    alert("Hi");
-    console.log("Button clicked!");
     console.log($event);
-    console.log(this.rootParam);
+    if(!this.expenseEntry.some(entry => entry.id==this.rootParam.id)) {
+      this.expenseEntry.push(this.rootParam);
+    }
   }
 
 }
