@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseEntry } from '../expense-entry';
-import { Input } from "@angular/core";
+import { Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: 'app-expense-entry',
@@ -12,6 +12,7 @@ export class ExpenseEntryComponent implements OnInit {
   title: string;
   expenseEntry: ExpenseEntry[];
   @Input() rootParam: ExpenseEntry;
+  @Output() notify = new EventEmitter();
   constructor() { }
 
   ngOnInit() {

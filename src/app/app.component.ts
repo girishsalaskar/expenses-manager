@@ -20,4 +20,8 @@ export class AppComponent {
       spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
     }
   }
+
+  notifyListener() {
+    alert("Notified");
+  }
 }
