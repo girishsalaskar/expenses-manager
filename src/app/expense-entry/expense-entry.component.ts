@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseEntry } from '../expense-entry';
+import { Input } from "@angular/core";
 
 @Component({
   selector: 'app-expense-entry',
@@ -10,6 +11,7 @@ export class ExpenseEntryComponent implements OnInit {
 
   title: string;
   expenseEntry: ExpenseEntry[];
+  @Input() rootParam: ExpenseEntry;
   constructor() { }
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class ExpenseEntryComponent implements OnInit {
     alert("Hi");
     console.log("Button clicked!");
     console.log($event);
+    console.log(this.rootParam);
   }
 
 }

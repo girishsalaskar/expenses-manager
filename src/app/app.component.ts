@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ExpenseEntry } from "./expense-entry";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Expenses Manager';
+  expenseEntry: ExpenseEntry;
+
+  ngOnInit() {
+    this.expenseEntry = {
+      id: 5,
+      item: "Pani Puri",
+      amount: 21,
+      category: "Food",
+      location: "Zomato",
+      spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
+    }
+  }
 }
