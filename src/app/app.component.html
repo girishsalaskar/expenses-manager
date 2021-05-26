@@ -28,4 +28,6 @@
       </div>
    </div>
 </nav>
-<app-expense-entry [rootParam]="expenseEntry" (notify)="notifyListener();" [entryParam]="entryPack"></app-expense-entry>
+<span>Count : {{clickedCount}}</span>
+<app-expense-entry [rootParam]="expenseEntry" (notify)="notifyListener($event);" [entryParam]="entryPack">
+</app-expense-entry>

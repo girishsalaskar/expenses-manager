@@ -10,8 +10,10 @@ export class AppComponent {
   title = 'Expenses Manager';
   expenseEntry: ExpenseEntry;
   entryPack: ExpenseEntry;
+  clickedCount: number;
 
   ngOnInit() {
+    this.clickedCount = 0;
     this.expenseEntry = {
       id: 5,
       item: "Pani Puri",
@@ -30,7 +32,7 @@ export class AppComponent {
     }
   }
 
-  notifyListener() {
-    alert("Notified");
+  notifyListener(count: number) {
+    this.clickedCount += count;
   }
 }
