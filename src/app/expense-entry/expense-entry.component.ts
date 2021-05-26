@@ -63,4 +63,8 @@ export class ExpenseEntryComponent implements OnInit, OnChanges {
     }
   }
 
+  alertMessage(message: string) {
+    alert(message);
+  }
+
 }

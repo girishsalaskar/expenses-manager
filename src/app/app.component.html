@@ -29,5 +29,6 @@
    </div>
 </nav>
 <span>Count : {{clickedCount}}</span>
-<app-expense-entry [rootParam]="expenseEntry" (notify)="notifyListener($event);" [entryParam]="entryPack">
+<button class="btn btn-primary" (click)="cmpExpenseEntry.alertMessage('From parent');">Show message from child!</button>
+<app-expense-entry [rootParam]="expenseEntry" (notify)="notifyListener($event);" [entryParam]="entryPack" #cmpExpenseEntry>
 </app-expense-entry>
