@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ExpenseEntry } from '../expense-entry';
-import { Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: 'app-expense-entry',
@@ -11,6 +10,16 @@ export class ExpenseEntryComponent implements OnInit {
 
   title: string;
   expenseEntry: ExpenseEntry[];
+  entryParam:ExpenseEntry;
+
+  @Input('entryParam')
+  get entryParameter():ExpenseEntry{return this.entryParam;};
+  set entryParameter(param:ExpenseEntry) {
+    param.amount = 10;
+    console.info("Amount modified!");
+    this.entryParam = param;
+  }
+
   @Input() rootParam: ExpenseEntry;
   @Output() notify = new EventEmitter();
   constructor() { }
@@ -36,7 +45,7 @@ export class ExpenseEntryComponent implements OnInit {
     {
       id: 3,
       item: "Vada pav",
-      amount: 10,
+      amount: 15,
       category: "Food",
       location: "Zomato",
       spendOn: new Date(2020, 6, 1, 10, 10, 10), createdOn: new Date(2020, 6, 1, 10, 10, 10),
