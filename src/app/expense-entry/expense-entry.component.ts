@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ExpenseEntry } from '../expense-entry';
 
 @Component({
@@ -6,15 +6,15 @@ import { ExpenseEntry } from '../expense-entry';
   templateUrl: './expense-entry.component.html',
   styleUrls: ['./expense-entry.component.css']
 })
-export class ExpenseEntryComponent implements OnInit {
+export class ExpenseEntryComponent implements OnInit, OnChanges {
 
   title: string;
   expenseEntry: ExpenseEntry[];
-  entryParam:ExpenseEntry;
+  entryParam: ExpenseEntry;
 
   @Input('entryParam')
-  get entryParameter():ExpenseEntry{return this.entryParam;};
-  set entryParameter(param:ExpenseEntry) {
+  get entryParameter(): ExpenseEntry { return this.entryParam; };
+  set entryParameter(param: ExpenseEntry) {
     param.amount = 10;
     console.info("Amount modified!");
     this.entryParam = param;
@@ -23,6 +23,10 @@ export class ExpenseEntryComponent implements OnInit {
   @Input() rootParam: ExpenseEntry;
   @Output() notify = new EventEmitter();
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.info(changes);
+  }
 
   ngOnInit() {
     this.title = "Expenses Entry";
@@ -54,7 +58,7 @@ export class ExpenseEntryComponent implements OnInit {
 
   showMessage($event: any) {
     console.log($event);
-    if(!this.expenseEntry.some(entry => entry.id==this.rootParam.id)) {
+    if (!this.expenseEntry.some(entry => entry.id == this.rootParam.id)) {
       this.expenseEntry.push(this.rootParam);
     }
   }
