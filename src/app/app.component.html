@@ -33,5 +33,9 @@
 <app-expense-entry [rootParam]="expenseEntry" (notify)="notifyListener($event);" [entryParam]="entryPack" #cmpExpenseEntry>
 </app-expense-entry>
 <button class="btn btn-success" (click)="initInterval();">Start</button>
-<app-testing-child>Projecting content from parent</app-testing-child>
+<app-testing-child>
+   <p>Single slot content projection</p>
+   <p question1>Multi-slot content projection1</p>
+   <p question2>Multi-slot content projection2</p>
+</app-testing-child>
 <button class="btn btn-danger" (click)="stopInterval();">Stop</button>

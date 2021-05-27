@@ -1,2 +1,7 @@
 <span>Interval {{ticker}}</span>
 <ng-content></ng-content>
+<ng-content select="question1"></ng-content>
+<ng-content select="question2"></ng-content>
+<!-- Below didn't worked, because it may work only once-->
+<ng-content select="question1"></ng-content>
+<ng-content select="question2"></ng-content>
