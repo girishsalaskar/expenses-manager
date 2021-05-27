@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ExpenseEntryComponent } from './expense-entry/expense-entry.component';
+import { TestingChildComponent } from './testing-child/testing-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExpenseEntryComponent
+    ExpenseEntryComponent,
+    TestingChildComponent
   ],
   imports: [
     BrowserModule,
