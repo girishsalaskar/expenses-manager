@@ -14,11 +14,12 @@ export class SampleProfileFormComponent implements OnInit {
   ngOnInit() {
     this.first_name = new FormControl('');
     this.first_name.setValue("Default value");
-    this.first_name.valueChanges.subscribe(($evt)=>{
-      console.log($evt);
-      console.log("New Value " + this.first_name.value);
-    });
-    
+    this.first_name.valueChanges.subscribe((value)=>{this.trackChange(value)});
+  }
+
+  trackChange(value:any) {
+    console.log(value);
+    console.log("New Value : " + this.first_name.value);
   }
 
 }
