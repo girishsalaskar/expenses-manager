@@ -44,7 +44,7 @@
                                 formControlName="state" class="form-control" value="" placeholder="state">
                                 <span style="color:red" *ngIf="userProfile.controls['state'].errors">Invalid State</span></div>
                     </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save
+                    <div class="mt-5 text-center"><button [disabled]="userProfile.invalid" class="btn btn-primary profile-button" type="submit">Save
                             Profile</button></div>
                 </div>
             </form>
