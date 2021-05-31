@@ -26,7 +26,7 @@ export class SampleProfileFormComponent implements OnInit {
   }
 
   //Value change subscribe listener
-  trackChange(value:any) {
+  trackChange(value: any) {
     console.log(value);
     //console.log("New Value : " + this.first_name.value);
   }
@@ -39,7 +39,7 @@ export class SampleProfileFormComponent implements OnInit {
       console.log(elem);
       console.log(this.userProfile.get(elem).errors);
     });
-    if(this.userProfile.status==="VALID") {
+    if (this.userProfile.status === "VALID") {
       alert("Congrats! Validation passed!");
     } else {
       alert("Pss! Please enter all details properly!");
