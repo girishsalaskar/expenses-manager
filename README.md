@@ -1,27 +1,44 @@
-# ExpensesManager
+# Introduction
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+This is just a sample project I designed for learning Angular 8. Will add details as I learned.
 
-## Development server
+## Directives
+### 1. The `ngFor` Directive
+```html
+<ul>
+    <li *ngFor="let element of array; let i = index; let even = even; let odd = odd; let first = first; let last = last;" [ngClass]="{odd:odd, even:even, first:first, last:last">{{element}}</li>
+</ul>
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### 2. 
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Communicating between parent and child components
 
-## Build
+### 1. Passing data to child component
+Parent component HTML :
+```html
+<app-child-component [param1]="value1" [param2]="value2" [param3]="value3"></app-child-component>
+```
+Child component TS :
+```typescript
+export class ChildComponent {
+    @Input()
+    param1: any;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    @Input('param2')
+    parameter2: any;
 
-## Running unit tests
+    paramter3: string;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+    
+    @Input('param3')
+    get parentParameter():any{return this.paramter3;};
+    set parentParameter(value:any) {
+        value = "Modified!";
+        console.log("Value modified at the time of input");
+        this.paramter3 = value;
+    }
+}
+```
+### 2. Passing data from child component to parent component.
