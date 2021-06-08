@@ -12,23 +12,26 @@ export class SampleProfileFormComponent implements OnInit {
     first_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     last_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     phone_number: new FormControl('', [Validators.pattern('[0-9]{8,}'), Validators.required]),
-    address: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email_address: new FormControl('', [Validators.pattern('[a-zA-Z0-9\.\_\@]{7,}'), Validators.required]),
     education: new FormControl(''),
-    country: new FormControl(''),
-    state: new FormControl('')
+    address: new FormGroup({
+      landmark: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      country: new FormControl(''),
+      state: new FormControl('')
+    })
   });;
   constructor() { }
 
   ngOnInit() {
     //valueChange subscribe
-    //this.first_name.valueChanges.subscribe((value)=>{this.trackChange(value)});
+    this.userProfile.controls["first_name"].valueChanges.subscribe((value) => { this.trackChange(value) });
+    console.log(this.userProfile.controls["address"]);
   }
 
   //Value change subscribe listener
   trackChange(value: any) {
     console.log(value);
-    //console.log("New Value : " + this.first_name.value);
+    console.log("New Value : " + this.userProfile.controls["first_name"].value);
   }
 
   submitProfile() {
