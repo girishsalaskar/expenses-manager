@@ -35,7 +35,7 @@ export class SampleProfileFormComponent implements OnInit {
   }
 
   submitProfile() {
-    console.log(this.userProfile.errors);
+    console.log(this.userProfile);
     console.log(this.userProfile.valid);
     console.log(this.userProfile.status);
     Object.keys(this.userProfile.controls).forEach(elem => {

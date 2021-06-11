@@ -31,11 +31,6 @@
                             <span style="color:red" *ngIf="userProfile.controls['phone_number'].errors">Invalid Phone
                                 Number</span>
                         </div>
-                        <div class="col-md-12"><label class="labels">Address</label><input type="text"
-                                formControlName="address" class="form-control" placeholder="enter address" value="">
-                            <span style="color:red" *ngIf="userProfile.controls['address'].errors">Invalid
-                                Address</span>
-                        </div>
                         <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
                                 formControlName="email_address" class="form-control" placeholder="enter email id"
                                 value="">
@@ -48,15 +43,17 @@
                                 Education</span>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row mt-3" formGroupName="address">
+                        <div class="col-md-12"><label class="labels">Landmark</label><input type="text"
+                            formControlName="landmark" class="form-control" placeholder="enter address" value="">
+                            <span style="color:red" *ngIf="userProfile.controls['address'].get('landmark').errors">Invalid
+                                Landmark</span>
+                        </div>
                         <div class="col-md-6"><label class="labels">Country</label><input type="text"
-                                formControlName="country" class="form-control" placeholder="country" value="">
-                            <span style="color:red" *ngIf="userProfile.controls['country'].errors">Invalid
-                                Country</span>
+                            formControlName="country" class="form-control" placeholder="country" value="">
                         </div>
                         <div class="col-md-6"><label class="labels">State/Region</label><input type="text"
-                                formControlName="state" class="form-control" value="" placeholder="state">
-                            <span style="color:red" *ngIf="userProfile.controls['state'].errors">Invalid State</span>
+                            formControlName="state" class="form-control" value="" placeholder="state">
                         </div>
                     </div>
                     <div class="mt-5 text-center"><button [disabled]="userProfile.invalid"
