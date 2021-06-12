@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from "@angular/forms";
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from "@angular/forms";
 
 @Component({
   selector: 'app-sample-profile-form',
@@ -7,39 +7,43 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
   styleUrls: ['./sample-profile-form.component.css']
 })
 export class SampleProfileFormComponent implements OnInit {
-
-  /*userProfile: FormGroup = new FormGroup({
-    first_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    last_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    phone_number: new FormControl('', [Validators.pattern('[0-9]{8,}'), Validators.required]),
-    email_address: new FormControl('', [Validators.pattern('[a-zA-Z0-9\.\_\@]{7,}'), Validators.required]),
-    education: new FormControl(''),
-    address: new FormGroup({
-      landmark: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      country: new FormControl(''),
-      state: new FormControl('')
-    })
-  });*/
   userProfile: FormGroup;
-  constructor(private formBuilder:FormBuilder) {
-    this.userProfile=this.formBuilder.group({
-      first_name:['', [Validators.required, Validators.minLength(3)]],
-      last_name:['', [Validators.required, Validators.minLength(3)]],
-      phone_number:['', [Validators.pattern('[0-9]{8,}'), Validators.required]],
-      email_address:['', [Validators.pattern('[a-zA-Z0-9\.\_\@]{7,}'), Validators.required]],
-      education:[''],
-      address:this.formBuilder.group({
-        landmark: ['',[Validators.required, Validators.minLength(3)]],
+  constructor(private formBuilder: FormBuilder) {
+    this.userProfile = this.formBuilder.group({
+      first_name: ['', [Validators.required, Validators.minLength(3)]],
+      last_name: ['', [Validators.required, Validators.minLength(3)]],
+      phone_number: ['', [Validators.pattern('[0-9]{8,}'), Validators.required]],
+      email_address: ['', [Validators.pattern('[a-zA-Z0-9\.\_\@]{7,}'), Validators.required]],
+      education: this.formBuilder.array([]),
+      address: this.formBuilder.group({
+        landmark: ['', [Validators.required, Validators.minLength(3)]],
         country: [''],
         state: ['']
       })
     });
   }
 
+  addEducation() {
+    let edu = new FormControl('', [Validators.required, Validators.minLength(3)]);
+    let educations = this.userProfile.get("education") as FormArray;
+    educations.push(edu);
+  }
+
+  removeEducation(index: number) {
+    let education = this.userProfile.get("education") as FormArray;
+    education.removeAt(index);
+  }
+
+  getEducations(): FormArray {
+    let education = this.userProfile.get("education") as FormArray;
+    return education;
+  }
+
   ngOnInit() {
     //valueChange subscribe
     this.userProfile.controls["first_name"].valueChanges.subscribe((value) => { this.trackChange(value) });
     console.log(this.userProfile.controls["address"]);
+    this.addEducation();
   }
 
   //Value change subscribe listener
