@@ -15,12 +15,12 @@
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">First Name</label><input type="text"
                                 formControlName="first_name" class="form-control" placeholder="first name" value="">
-                            <span style="color:red" *ngIf="userProfile.controls['first_name'].errors">Invalid First
+                            <span style="color:red" *ngIf="userProfile.controls['first_name'].touched && userProfile.controls['first_name'].errors">Invalid First
                                 Name</span>
                         </div>
                         <div class="col-md-6"><label class="labels">Last Name</label><input type="text"
                                 formControlName="last_name" class="form-control" value="" placeholder="Last Name">
-                            <span style="color:red" *ngIf="userProfile.controls['last_name'].errors">Invalid Last
+                            <span style="color:red" *ngIf="userProfile.controls['last_name'].touched && userProfile.controls['last_name'].errors">Invalid Last
                                 Name</span>
                         </div>
                     </div>
