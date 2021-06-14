@@ -10,7 +10,7 @@ export class SampleProfileFormComponent implements OnInit {
   userProfile: FormGroup;
   constructor(private formBuilder: FormBuilder) {
     this.userProfile = this.formBuilder.group({
-      first_name: ['', [Validators.required, Validators.minLength(3)]],
+      first_name: ['', {updateOn:'blur', validators:[Validators.required, Validators.minLength(3)], asyncValidators:[]}],
       last_name: ['', [Validators.required, Validators.minLength(3)]],
       phone_number: ['', [Validators.pattern('[0-9]{8,}'), Validators.required]],
       email_address: ['', [Validators.pattern('[a-zA-Z0-9\.\_\@]{7,}'), Validators.required]],
