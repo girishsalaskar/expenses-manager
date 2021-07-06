@@ -10,11 +10,14 @@ import { SampleProfileFormComponent } from './sample-profile-form/sample-profile
 import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
 import { ThreeComponent } from './three/three.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routs: Routes = [
   { path:'one',component:OneComponent},
   { path:'two',component:TwoComponent},
-  {path:'three',component:ThreeComponent}
+  {path:'three',component:ThreeComponent},
+
+  {path:'**',component:NotFoundComponent} // It should be added at last
 ]
 
 @NgModule({
@@ -25,7 +28,8 @@ const routs: Routes = [
     SampleProfileFormComponent,
     OneComponent,
     TwoComponent,
-    ThreeComponent
+    ThreeComponent,
+    NotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(routs),
