@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { ExpenseEntry } from "./expense-entry";
 import { TestingChildComponent } from "./testing-child/testing-child.component";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ export class AppComponent {
 
   @ViewChild(TestingChildComponent, {static: false})
   testingChildComponent: TestingChildComponent;
+
+  //Inject router and ActivatedRoute
+  constructor(private router: Router, private routes:ActivatedRoute) {}
 
   ngOnInit() {
     this.clickedCount = 0;
@@ -47,5 +51,11 @@ export class AppComponent {
   initInterval() {
     this.testingChildComponent.ticker = 0;
     this.testingChildComponent.tickerIntervalId = setInterval(() => {this.testingChildComponent.ticker++}, 1000);
+  }
+
+  goToThree() {
+    let acr = document.getElementById("acrThree");
+    acr.classList.add("active");
+    this.router.navigate(['three']);
   }
 }

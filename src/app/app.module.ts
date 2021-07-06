@@ -9,10 +9,12 @@ import { TestingChildComponent } from './testing-child/testing-child.component';
 import { SampleProfileFormComponent } from './sample-profile-form/sample-profile-form.component';
 import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
+import { ThreeComponent } from './three/three.component';
 
 const routs: Routes = [
   { path:'one',component:OneComponent},
-  { path:'two',component:TwoComponent}
+  { path:'two',component:TwoComponent},
+  {path:'three',component:ThreeComponent}
 ]
 
 @NgModule({
@@ -22,7 +24,8 @@ const routs: Routes = [
     TestingChildComponent,
     SampleProfileFormComponent,
     OneComponent,
-    TwoComponent
+    TwoComponent,
+    ThreeComponent
   ],
   imports: [
     RouterModule.forRoot(routs),
