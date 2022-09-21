@@ -9,15 +9,10 @@ import { TestingChildComponent } from './testing-child/testing-child.component';
 import { SampleProfileFormComponent } from './sample-profile-form/sample-profile-form.component';
 import { OneComponent } from './one/one.component';
 import { TwoComponent } from './two/two.component';
-import { ThreeComponent } from './three/three.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 
 const routs: Routes = [
   { path:'one',component:OneComponent},
-  { path:'two',component:TwoComponent},
-  {path:'three',component:ThreeComponent},
-
-  {path:'**',component:NotFoundComponent} // It should be added at last
+  { path:'two',component:TwoComponent}
 ]
 
 @NgModule({
@@ -27,9 +22,7 @@ const routs: Routes = [
     TestingChildComponent,
     SampleProfileFormComponent,
     OneComponent,
-    TwoComponent,
-    ThreeComponent,
-    NotFoundComponent
+    TwoComponent
   ],
   imports: [
     RouterModule.forRoot(routs),
